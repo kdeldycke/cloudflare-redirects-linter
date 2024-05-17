@@ -1,0 +1,73 @@
+[tool.poetry]
+# Docs: https://python-poetry.org/docs/pyproject/
+name = "cloudflare-redirects-linter"
+version = "0.0.1"
+description = "Lint Cloudflare Pages _redirects files."
+license = 'GPL-2.0-or-later'
+authors = ["Kevin Deldycke <kevin@deldycke.com>"]
+readme = "readme.md"
+homepage = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
+repository = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
+keywords = ['CLI', 'Cloudflare', 'redirects']
+classifiers = [
+    # See: https://pypi.org/pypi?%3Aaction=list_classifiers
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Operating System :: MacOS',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: POSIX',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Topic :: Utilities',
+    'Typing :: Typed',
+]
+
+[tool.poetry.urls]
+"Funding" = "https://github.com/sponsors/kdeldycke"
+"Issues" = "https://github.com/kdeldycke/cloudflare-redirects-linter/issues"
+"Changelog" = "https://github.com/kdeldycke/cloudflare-redirects-linter/changelog.md"
+
+[tool.poetry.dependencies]
+# Python versions and their status: https://devguide.python.org/versions/
+python = "^3.8"
+click-extra = "^4.7.2"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0"
+
+[tool.mypy]
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
+pretty = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+
+[tool.bumpversion]
+current_version = "0.0.1"
+allow_dirty = true
+
+[[tool.bumpversion.files]]
+# Update Python package version in any __init__.py file.
+glob = "./**/__init__.py"
+ignore_missing_version = true
+
+[[tool.bumpversion.files]]
+# Update version in Poetry section.
+filename = "./pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+# Update the version in standard Markdown changelog.
+filename = "./changelog.md"
+search = "## [{current_version} (unreleased)]("
+replace = "## [{new_version} (unreleased)]("
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
