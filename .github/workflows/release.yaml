@@ -29,9 +29,9 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           chmod +x ${{ steps.artifacts.outputs.download-path }}/${{ matrix.bin_name }}
-      - name: Run mdedup --version
+      - name: Run cflint --version
         run: |
           ${{ steps.artifacts.outputs.download-path }}/${{ matrix.bin_name }} --version
-      - name: Run mdedup --help
+      - name: Run cflint --help
         run: |
           ${{ steps.artifacts.outputs.download-path }}/${{ matrix.bin_name }} --help

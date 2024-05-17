@@ -36,6 +36,9 @@ click-extra = "^4.7.2"
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.0"
 
+[tool.poetry.scripts]
+cflint = 'cflint.__main__:main'
+
 [tool.mypy]
 warn_unused_configs = true
 warn_redundant_casts = true
