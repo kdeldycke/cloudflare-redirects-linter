@@ -1,13 +1,11 @@
-[tool.poetry]
-# Docs: https://python-poetry.org/docs/pyproject/
+[project]
+# Docs: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
 name = "cloudflare-redirects-linter"
 version = "0.0.1"
+requires-python = ">= 3.8"
 description = "Lint Cloudflare Pages _redirects files"
-license = 'GPL-2.0-or-later'
-authors = ["Kevin Deldycke <kevin@deldycke.com>"]
+authors = [{ name = "Kevin Deldycke", email = "kevin@deldycke.com" }]
 readme = "readme.md"
-homepage = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
-repository = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
 keywords = ['CLI', 'Cloudflare', 'redirects']
 classifiers = [
     # See: https://pypi.org/pypi?%3Aaction=list_classifiers
@@ -15,9 +13,16 @@ classifiers = [
     'Environment :: Console',
     'Intended Audience :: Developers',
     'Intended Audience :: Information Technology',
+    'License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)',
     'Operating System :: MacOS',
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX',
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     'Programming Language :: Python :: Implementation :: CPython',
     'Topic :: Internet :: WWW/HTTP :: Site Management',
     'Topic :: Software Development :: Debuggers',
@@ -25,21 +30,16 @@ classifiers = [
     'Topic :: Utilities',
     'Typing :: Typed',
 ]
+dependencies = ["click-extra ~= 4.8.3"]
 
-[tool.poetry.urls]
+[project.urls]
+"Homepage" = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
+"Repository" = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
 "Funding" = "https://github.com/sponsors/kdeldycke"
 "Issues" = "https://github.com/kdeldycke/cloudflare-redirects-linter/issues"
 "Changelog" = "https://github.com/kdeldycke/cloudflare-redirects-linter/changelog.md"
 
-[tool.poetry.dependencies]
-# Python versions and their status: https://devguide.python.org/versions/
-python = "^3.8"
-click-extra = "^4.7.2"
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.0"
-
-[tool.poetry.scripts]
+[project.scripts]
 cflint = 'cflint.__main__:main'
 
 [tool.mypy]
@@ -56,6 +56,7 @@ ignore_missing_imports = true
 [tool.bumpversion]
 current_version = "0.0.1"
 allow_dirty = true
+ignore_missing_files = true
 
 [[tool.bumpversion.files]]
 # Update Python package version in any __init__.py file.
@@ -63,17 +64,13 @@ glob = "./**/__init__.py"
 ignore_missing_version = true
 
 [[tool.bumpversion.files]]
-# Update version in Poetry section.
+# Update version in project section.
 filename = "./pyproject.toml"
 search = 'version = "{current_version}"'
 replace = 'version = "{new_version}"'
 
 [[tool.bumpversion.files]]
-# Update the version in standard Markdown changelog.
+# Update the version in Markdown changelog.
 filename = "./changelog.md"
 search = "## [{current_version} (unreleased)]("
 replace = "## [{new_version} (unreleased)]("
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"

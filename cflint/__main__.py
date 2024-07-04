@@ -18,19 +18,9 @@
 .. code-block:: shell-session
 
     $ python -m cflint
-
-Removes empty string and current working directory from the first entry of
-``sys.path``, if present to avoid using current directory
-in subcommands when invoked as ``python -m cflint <command>``.
 """
 
 from __future__ import annotations
-
-import os
-import sys
-
-if sys.path[0] in ("", os.getcwd()):
-    sys.path.pop(0)
 
 
 def main():
@@ -44,11 +34,11 @@ def main():
     <https://github.com/python-poetry/poetry/issues/5981>`_:
 
         - plain inline package call: ``python -m cflint``,
-        - Poetry's script entry point: ``mdedup = 'cflint.__main__:main``,
+        - ``pyproject.toml`` entry point: ``cflint = 'cflint.__main__:main``,
         - Nuitka's main module invocation requirement:
           ``python -m nuitka (...) cflint/__main__.py``
 
-    That way we can deduce all three cases from the Poetry entry point.
+    That way we can deduce all three cases from the entry point.
     """
     from cflint.cli import cflint
 
