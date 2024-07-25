@@ -30,7 +30,7 @@ classifiers = [
     'Topic :: Utilities',
     'Typing :: Typed',
 ]
-dependencies = ["click-extra ~= 4.8.3"]
+dependencies = ["click-extra ~= 4.9.0"]
 
 [project.urls]
 "Homepage" = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
