@@ -6,7 +6,23 @@ requires-python = ">= 3.8"
 description = "Lint Cloudflare Pages _redirects files"
 authors = [{ name = "Kevin Deldycke", email = "kevin@deldycke.com" }]
 readme = "readme.md"
-keywords = ['CLI', 'Cloudflare', 'redirects']
+keywords = [
+    'acceptance testing',
+    'Cloudflare',
+    'Cloudflare Pages',
+    'config validation',
+    'glob matching',
+    'HTTP redirect',
+    'HTTP testing',
+    'Python',
+    'Python testing',
+    'redirect testing',
+    'redirects',
+    'test generation',
+    'URL matching',
+    'URL redirection',
+    'URL validation',
+]
 classifiers = [
     # See: https://pypi.org/pypi?%3Aaction=list_classifiers
     'Development Status :: 5 - Production/Stable',
@@ -37,7 +53,7 @@ dependencies = ["click-extra ~= 4.8.3"]
 "Repository" = 'https://github.com/kdeldycke/cloudflare-redirects-linter'
 "Funding" = "https://github.com/sponsors/kdeldycke"
 "Issues" = "https://github.com/kdeldycke/cloudflare-redirects-linter/issues"
-"Changelog" = "https://github.com/kdeldycke/cloudflare-redirects-linter/changelog.md"
+"Changelog" = "https://github.com/kdeldycke/cloudflare-redirects-linter/blob/main/changelog.md"
 
 [project.scripts]
 cflint = 'cflint.__main__:main'
