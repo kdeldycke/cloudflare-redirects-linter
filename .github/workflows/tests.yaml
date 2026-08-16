@@ -39,7 +39,7 @@ jobs:
           variants: dict[str, set[str]] = {
               "os": {
                   # Available OSes:
-                  # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+                  # https://docs.github.com/en/actions/concepts/runners/github-hosted-runners
                   "ubuntu-22.04",
                   "ubuntu-20.04",
                   "macos-14",
